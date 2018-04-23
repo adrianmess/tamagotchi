@@ -45,13 +45,13 @@ describe('Tamagotchi', function() {
 
     gerald.sleeping();
     jasmine.clock().tick(25000);
-    console.log("gerry's sleep level" + gerald.sleep);
+    console.log("gerry's sleep level after 25 seconds (expect 25): " + gerald.sleep);
 
     jasmine.clock().tick(25001);
-    console.log("gerry's sleep level" + gerald.sleep);
+    console.log("gerry's sleep level after 50 seconds (expect 50): " + gerald.sleep);
 
-    jasmine.clock().tick(50000);
-    console.log("gerry's sleep level" + gerald.sleep);
+    jasmine.clock().tick(25000);
+    console.log("gerry's sleep level after 75 seconds (expect 25): " + gerald.sleep);
 
     expect(gerald.sleep).toEqual(50);
   });

@@ -4,6 +4,7 @@ class Tamagotchi {
     this.health = 200;
     this.food = 60;
     this.sleep = 50;
+    this.needSleep = false ;
     this.play = 30;
     this.status = "";
   }
@@ -17,11 +18,29 @@ class Tamagotchi {
     }, 1000);
     }
 
+
+
+
   setSleep() {
     setInterval(() => {
-      this.sleep--;
+      if (this.sleep > 0){
+        this.sleep--;
+      } else {
+        this.needSleep = true;
+      }
     }, 1000);
   }
+
+  sleeping() {
+    setInterval (() => {
+      while (this.sleep < 50) {
+        this.sleep +=1;
+      }  
+        this.needSleep = false;
+      }, 1000);
+    return this.sleep;
+  }
+
   setFood(){
     setInterval(() => {
       this.food--;
@@ -29,22 +48,6 @@ class Tamagotchi {
     }
   addFood(){
     this.food+=30;
-  }
-
-  sleeping() {
-    setInterval (() => {
-      do { this.sleep +=2;
-      }
-        while (this.sleep < 50)
-      }
-
-
-
-
-        console.log("else");
-      }
-    }, 1000);
-    return this.sleep;
   }
 
   // play(){
